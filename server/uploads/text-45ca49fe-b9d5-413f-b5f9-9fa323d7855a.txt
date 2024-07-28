@@ -1,0 +1,1 @@
+Hi. So I just created this Google Chrome extension that will record your voice and then transcribe whatever you say back to a local server relay. So let me click.
