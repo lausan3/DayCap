@@ -4,27 +4,11 @@
   "version": "1.0",
   "description": "Use your voice to journal your day's work and extract important information, setting calendar events as needed.",
   "permissions": ["activeTab", "scripting"],
-  "background": { 
-    "service_worker": "background/background.js"
-  },
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "assets/img/icon-34.png"
   },
   "icons": {
     "128": "assets/img/icon-128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
-      "js": ["content/content.js"]
-    }
-  ],
-  "commands": {
-    "_execute_action": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Y"
-      }
-    }
   }
 }
