@@ -12,10 +12,10 @@ app.use(cors());
 
 app.use(express.json());
 
-const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
-const AWS_REGION = process.env.AWS_REGION;
-const AWS_BUCKET_NAME = process.env.AWS_BUCKET_NAME;
+const AWS_ACCESS_KEY_ID = "";
+const AWS_SECRET_ACCESS_KEY = "";
+const AWS_REGION = "";
+const AWS_BUCKET_NAME = "";
 
 // Configure AWS SDK
 AWS.config.update({
@@ -110,7 +110,30 @@ app.post('/uploadTranscribed', upload.none(), (req, res) => {
 
     console.log('Text file saved successfully to /uploads/' + fileName);
 
-    res.json({ msg: 'Text file saved successfully to /uploads/' + fileName });
+    const s3 = new AWS.S3();
+
+    // Read the file content
+    const fileContent = fs.readFileSync(filePath);
+
+    // Create S3 upload parameters
+    const params = {
+      Bucket: AWS_BUCKET_NAME,
+      Key: `${fileName}.txt`,
+      Body: fileContent,
+      ContentType: 'text/plain',
+      ContentDisposition: 'attachment'
+    };
+
+    // Uploading files to the bucket
+    s3.putObject(params, (err, data) => {
+      if (err) {
+        console.error('Error uploading file:', err);
+        return res.status(500).send('Error uploading file to S3');
+      }
+
+      console.log('File uploaded successfully to S3:', data);
+      res.json({ msg: 'Text file saved successfully to /uploads/' + fileName });
+    });
   });
 })
 
