@@ -12,10 +12,10 @@ app.use(cors());
 
 app.use(express.json());
 
-const AWS_ACCESS_KEY_ID = "AKIAQE43KJHFE7WJXK6N"
-const AWS_SECRET_ACCESS_KEY = "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"
-const AWS_REGION = "us-east-1"
-const AWS_BUCKET_NAME = "daycap-test"
+const AWS_ACCESS_KEY_ID = ""
+const AWS_SECRET_ACCESS_KEY = ""
+const AWS_REGION = ""
+const AWS_BUCKET_NAME = ""
 
 // Configure AWS SDK
 AWS.config.update({
