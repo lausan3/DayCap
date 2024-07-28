@@ -4,4 +4,5 @@ This is a work-in-progress that is NOT deployed.
 
 ## Demo:
 
-<video src="./public/DayCap Transcription Showcase.mp4">
+https://github.com/user-attachments/assets/4b971b1d-0faa-4dfc-bc34-73f6e96cf96a
+
