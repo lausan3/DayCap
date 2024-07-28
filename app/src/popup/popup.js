@@ -2,8 +2,8 @@ const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 
 // This extension requires a server running locally or at a datacenter to send data to an AWS S3 bucket for file storage.
-const RELAY_SERVER_ADDRESS = "";
-const ASSEMBLY_AI_API_KEY = "";
+const RELAY_SERVER_ADDRESS = "http://localhost:3000";
+const ASSEMBLY_AI_API_KEY = "2f8d0db917864b68a43277d5db20990b";
 
 let mediaRecorder;
 let audioChunks = [];
